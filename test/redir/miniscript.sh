@@ -1,0 +1,1 @@
+gcc ../canonique/canonique.c ../canonique/libft.a ../canonique/move.c ../canonique/saisie.c ../canonique/t_data_init.c ../canonique/terminal_deplacement.c ../canonique/utils.c -I../canonique fichier.c

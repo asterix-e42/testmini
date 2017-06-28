@@ -1,0 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tdumouli <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/16 14:31:11 by tdumouli          #+#    #+#             */
+/*   Updated: 2017/04/17 16:48:01 by tdumouli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "tent.h"
+#include <stdlib.h>
+
+char	*chop(char *nam_var, char *name_priv)
+{
+	t_var		*tmp;
+	t_list		*exist;
+
+	tmp = ft_lstfind_var(nam_var);
+	if (tmp)
+		if ((exist = ft_lstfind_priv(name_priv, tmp->privat)))
+			return (((t_private *)exist->content)->value);
+	return (NULL);
+}
+
+char	**chop_all(char *nam_var)
+{
+	t_var		*tmp;
+	t_list		*exist;
+	char		**ret;
+	int			parcourt;
+
+	tmp = ft_lstfind_var(nam_var);
+	if (tmp)
+	{
+		parcourt = ft_lstcount(tmp->privat);
+		ft_putnbr(parcourt);
+		ret = (char **)malloc(sizeof(char *) * (1 + parcourt));
+		*(ret + parcourt) = (void *)0; 
+	}
+	//	if ((exist = ft_lstfind_priv(name_priv, tmp->privat)))
+
+	//		return (((t_private *)exist->content)->value);
+	return (NULL);
+}
